@@ -3,9 +3,10 @@ package client
 import (
 	kiiparams "github.com/kiichain/kiichain/v3/app/params"
 
+	cryptocodec "github.com/cosmos/cosmos-sdk/crypto/codec"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	cryptocodec "github.com/cosmos/evm/crypto/codec"
+	evmcryptocodec "github.com/cosmos/evm/crypto/codec"
 )
 
 var encodingConfig kiiparams.EncodingConfig
@@ -16,6 +17,7 @@ func init() {
 	// Register cosmos-sdk interfaces
 	authtypes.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 
-	// Register the pubkey EVM interface
+	// Register the pubkey for EVM and Cosmos interface
+	evmcryptocodec.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 	cryptocodec.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 }
