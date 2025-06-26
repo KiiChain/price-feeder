@@ -131,6 +131,7 @@ func priceFeederCmdHandler(cmd *cobra.Command, args []string) error {
 			cfg.RPC.GRPCEndpoint,
 			cfg.Gas.GasAdjustment,
 			cfg.Gas.GasPrices,
+			cfg.Gas.GasLimit,
 		)
 		if err != nil {
 			// sleep for a second before retrying

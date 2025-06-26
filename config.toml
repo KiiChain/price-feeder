@@ -8,6 +8,8 @@
 gas_adjustment = 1.5
 # Gas prices are specified in the format "<amount><denom>", e.g., "500000akii"
 gas_prices = "500000akii"
+# Gas limit is the maximum amount of gas that can be used for a transaction
+gas_limit = 2000000
 
 #######################################################
 ###                   Account                       ###
@@ -22,7 +24,7 @@ validator = "kiivaloper1..."
 # The prefix for the keys
 prefix = "kii"
 # The chain ID for signatures
-chain_id = "localchain_1010-1"
+chain_id = "oro_1336-1"
 
 #######################################################
 ###                   Keyring                       ###
@@ -273,7 +275,7 @@ enable_hostname_label = true
 # Enable or disable service label
 enable_service_label = true
 # Global labels for the telemetry
-global_labels = [["chain_id", "localchain_1010-1"]]
+global_labels = [["chain_id", "oro_1336-1"]]
 # The service name for telemetry
 service_name = "price-feeder"
 # How long prometheus should retain data

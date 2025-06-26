@@ -88,6 +88,9 @@ type (
 
 		// GasPrices defines the gas prices used for transactions.
 		GasPrices string `toml:"gas_prices" validate:"required"`
+
+		// GasLimit is the maximum amount of gas that can be used for a transaction.
+		GasLimit uint64 `toml:"gas_limit" validate:"required"`
 	}
 
 	// CurrencyPair defines a price quote of the exchange rate for two different

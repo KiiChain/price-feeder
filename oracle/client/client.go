@@ -45,6 +45,7 @@ type (
 		Encoding            kiiparams.EncodingConfig
 		GasPrices           string
 		GasAdjustment       float64
+		GasLimit            uint64
 		GRPCEndpoint        string
 		KeyringPassphrase   string
 		BlockHeightEvents   chan int64
@@ -75,6 +76,7 @@ func NewOracleClient(
 	grpcEndpoint string,
 	gasAdjustment float64,
 	gasPrices string,
+	gasLimit uint64,
 ) (OracleClient, error) {
 	// get the account which performs the transaction
 	oracleAddr, err := sdk.AccAddressFromBech32(oracleAddrString)
@@ -103,6 +105,7 @@ func NewOracleClient(
 		GasAdjustment:       gasAdjustment,
 		GRPCEndpoint:        grpcEndpoint,
 		GasPrices:           gasPrices,
+		GasLimit:            gasLimit,
 		BlockHeightEvents:   make(chan int64, 1),
 	}
 
@@ -201,7 +204,7 @@ func (oc OracleClient) BroadcastTx(
 		return nil, err
 	}
 
-	txBuilder.SetGasLimit(200000)
+	txBuilder.SetGasLimit(oc.GasLimit)
 
 	// Sign the transaction
 	err = tx.Sign(clientCtx.CmdContext, txf, clientCtx.GetFromName(), txBuilder, false)
@@ -220,7 +223,7 @@ func (oc OracleClient) BroadcastTx(
 	// broadcast transaction
 	resp, err := clientCtx.BroadcastTx(txBytes)
 	if resp != nil && resp.Code != 0 {
-		err = fmt.Errorf("received error response code %d from broadcast tx: %s", resp.Code, resp.Logs.String())
+		err = fmt.Errorf("received error response code %d from broadcast tx; Raw log: %s", resp.Code, resp.RawLog)
 		return resp, err
 	}
 	if err != nil {
