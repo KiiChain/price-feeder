@@ -198,6 +198,9 @@ type (
 
 		// Websocket endpoint for the provider, ex. "stream.binance.com:9443"
 		Websocket string `toml:"websocket"`
+
+		// Timeout for this provider, ex. "200ms" (optional, overrides global)
+		Timeout string `toml:"timeout"`
 	}
 
 	Healthchecks struct {

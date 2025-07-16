@@ -1,0 +1,11 @@
+[[provider_endpoints]]
+name = "binance"
+rest = "https://api1.binance.com"
+websocket = "stream.binance.com:9443"
+timeout = "200ms"
+
+[[provider_endpoints]]
+name = "kraken"
+rest = "https://api.kraken.com"
+websocket = "stream.kraken.com:9443"
+timeout = "300ms"
