@@ -1,3 +1,4 @@
+package config
 // ... existing code ...
 
 // ProviderEndpoint defines an override setting in our config for the
