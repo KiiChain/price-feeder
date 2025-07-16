@@ -3,7 +3,6 @@ package config
 import (
     "time"
     "fmt"
-    "https://github.com/KiiChain/price-feeder/config"
 )
 
 // Returns the timeout for a given provider, falling back to global if not set
