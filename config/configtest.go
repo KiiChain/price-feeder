@@ -4,7 +4,7 @@ import (
     "flag"
     "fmt"
     "os"
-    "KiiChain/price-feeder/config" // actual import path for config.go
+    "github.com/kiichain/price-feeder/config" // actual import path for config.go
 )
 
 func main() {
