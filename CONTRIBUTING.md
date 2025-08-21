@@ -117,3 +117,4 @@ Please follow the [Conventional Commits v1.0.0][convcommit]. The commit types mu
 [prs]: https://github.com/KiiChain/kiijs-sdk/pulls
 [convcommit]: https://www.conventionalcommits.org/en/v1.0.0/
 [github]: https://github.com/KiiChain/kiijs-sdk
+[support]: https://x.com/KiiChainio
