@@ -30,8 +30,8 @@ allowed_origins = ["*"]
 [gas]
 # Gas adjustment is a multiplier applied to the gas estimate
 gas_adjustment = 1.5
-# Gas prices are specified in the format "<amount><denom>", e.g., "400000000000akii"
-gas_prices = "400000000000akii"
+# Gas prices are specified in the format "<amount><denom>", e.g., "600000000akii"
+gas_prices = "600000000akii"
 # Gas limit is the maximum amount of gas that can be used for a transaction
 gas_limit = 200000
 
@@ -48,7 +48,7 @@ validator = "kiivaloper1..."
 # The prefix for the keys
 prefix = "kii"
 # The chain ID for signatures
-chain_id = "oro_1336-1"
+chain_id = "kiichain_1783-1"
 
 #######################################################
 ###                   Keyring                       ###
