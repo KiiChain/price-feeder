@@ -30,8 +30,8 @@ allowed_origins = ["*"]
 [gas]
 # Gas adjustment is a multiplier applied to the gas estimate
 gas_adjustment = 1.5
-# Gas prices are specified in the format "<amount><denom>", e.g., "400000000000akii"
-gas_prices = "400000000000akii"
+# Gas prices are specified in the format "<amount><denom>", e.g., "600000000akii"
+gas_prices = "600000000akii"
 # Gas limit is the maximum amount of gas that can be used for a transaction
 gas_limit = 200000
 
@@ -48,7 +48,7 @@ validator = "kiivaloper1..."
 # The prefix for the keys
 prefix = "kii"
 # The chain ID for signatures
-chain_id = "oro_1336-1"
+chain_id = "kiichain_1783-1"
 
 #######################################################
 ###                   Keyring                       ###
@@ -82,7 +82,7 @@ tmrpc_endpoint = "http://localhost:26657"
 # Base is the asset being priced
 base = "BTC"
 # Chain denom is the denomination used on the chain
-chain_denom = "ubtc"
+chain_denom = "btc"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -97,7 +97,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "ETH"
 # Chain denom is the denomination used on the chain
-chain_denom = "ueth"
+chain_denom = "eth"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -112,7 +112,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "SOL"
 # Chain denom is the denomination used on the chain
-chain_denom = "usol"
+chain_denom = "sol"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -127,7 +127,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "XRP"
 # Chain denom is the denomination used on the chain
-chain_denom = "uxrp"
+chain_denom = "xrp"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -142,7 +142,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "BNB"
 # Chain denom is the denomination used on the chain
-chain_denom = "ubnb"
+chain_denom = "bnb"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -156,7 +156,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "USDT"
 # Chain denom is the denomination used on the chain
-chain_denom = "uusdt"
+chain_denom = "usdt"
 # Providers are the exchanges providing the price data
 providers = [
   "kraken",
@@ -170,7 +170,7 @@ quote = "USD"
 # Base is the asset being priced
 base = "USDC"
 # Chain denom is the denomination used on the chain
-chain_denom = "uusdc"
+chain_denom = "usdc"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -185,7 +185,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "XAUT"
 # Chain denom is the denomination used on the chain
-chain_denom = "uxaut"
+chain_denom = "xaut"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -199,7 +199,7 @@ quote = "USDT"
 # Base is the asset being priced
 base = "TRX"
 # Chain denom is the denomination used on the chain
-chain_denom = "utrx"
+chain_denom = "trx"
 # Providers are the exchanges providing the price data
 providers = [
   "huobi",
@@ -301,6 +301,6 @@ enable_hostname_label = true
 # Enable or disable service label
 enable_service_label = true
 # Global labels for the telemetry
-global_labels = [["chain_id", "oro_1336-1"]]
+global_labels = [["chain_id", "kiichain_1783-1"]]
 # How long prometheus should retain data
 prometheus_retention = 60
