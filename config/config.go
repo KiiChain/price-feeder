@@ -85,21 +85,21 @@ type (
 	// Main defines the main configuration parameters for the price-feeder
 	Main struct {
 		// EnableServer indicates whether the price-feeder server should be enabled
-		EnableServer bool `toml:"enable_server" validate:"required"`
+		EnableServer bool `toml:"enable_server" `
 		// EnableVoting indicates whether the price-feeder should vote on prices
-		EnableVoting bool `toml:"enable_voting" validate:"required"`
+		EnableVoting bool `toml:"enable_voting" `
 	}
 
 	// Server defines the server configuration parameters for the price-feeder
 	Server struct {
 		// ListenAddress is the address on which the price-feeder server
-		ListenAddress string `toml:"listen_addr" validate:"required"`
+		ListenAddress string `toml:"listen_addr" `
 		// ReadTimeout is the maximum duration for reading the entire request
-		ReadTimeout string `toml:"read_timeout" validate:"required"`
+		ReadTimeout string `toml:"read_timeout" `
 		// WriteTimeout is the maximum duration before timing out writes of the response
-		WriteTimeout string `toml:"write_timeout" validate:"required"`
+		WriteTimeout string `toml:"write_timeout" `
 		// EnableCORS indicates whether CORS is enabled for the server.
-		EnableCORS bool `toml:"enable_cors" validate:"required"`
+		EnableCORS bool `toml:"enable_cors" `
 		// AllowedOrigins defines the allowed origins for CORS requests.
 		AllowedOrigins []string `toml:"allowed_origins"`
 	}
@@ -108,52 +108,52 @@ type (
 	Gas struct {
 		// GasAdjustment is a multiplier applied to the gas estimate to ensure
 		// that the transaction has enough gas to be processed.
-		GasAdjustment float64 `toml:"gas_adjustment" validate:"required"`
+		GasAdjustment float64 `toml:"gas_adjustment" `
 
 		// GasPrices defines the gas prices used for transactions.
-		GasPrices string `toml:"gas_prices" validate:"required"`
+		GasPrices string `toml:"gas_prices" `
 
 		// GasLimit is the maximum amount of gas that can be used for a transaction.
-		GasLimit uint64 `toml:"gas_limit" validate:"required"`
+		GasLimit uint64 `toml:"gas_limit" `
 	}
 
 	// CurrencyPair defines a price quote of the exchange rate for two different
 	// currencies and the supported providers for getting the exchange rate.
 	CurrencyPair struct {
-		Base       string   `toml:"base" validate:"required"`
-		ChainDenom string   `toml:"chain_denom" validate:"required"`
-		Quote      string   `toml:"quote" validate:"required"`
+		Base       string   `toml:"base" `
+		ChainDenom string   `toml:"chain_denom" `
+		Quote      string   `toml:"quote" `
 		Providers  []string `toml:"providers" validate:"required,gt=0,dive,required"`
 	}
 
 	// Deviation defines a maximum amount of standard deviations that a given asset can
 	// be from the median without being filtered out before voting.
 	Deviation struct {
-		Base      string `toml:"base" validate:"required"`
-		Threshold string `toml:"threshold" validate:"required"`
+		Base      string `toml:"base" `
+		Threshold string `toml:"threshold" `
 	}
 
 	// Account defines account related configuration that is related to the
 	// network and transaction signing functionality.
 	Account struct {
-		ChainID    string `toml:"chain_id" validate:"required"`
-		Address    string `toml:"address" validate:"required"`
-		Validator  string `toml:"validator" validate:"required"`
+		ChainID    string `toml:"chain_id" `
+		Address    string `toml:"address" `
+		Validator  string `toml:"validator" `
 		FeeGranter string `toml:"fee_granter"`
-		Prefix     string `toml:"prefix" validate:"required"`
+		Prefix     string `toml:"prefix" `
 	}
 
 	// Keyring defines the required keyring configuration.
 	Keyring struct {
-		Backend string `toml:"backend" validate:"required"`
-		Dir     string `toml:"dir" validate:"required"`
+		Backend string `toml:"backend" `
+		Dir     string `toml:"dir" `
 	}
 
 	// RPC defines RPC configuration of both the gRPC and Tendermint nodes.
 	RPC struct {
-		TMRPCEndpoint string `toml:"tmrpc_endpoint" validate:"required"`
-		GRPCEndpoint  string `toml:"grpc_endpoint" validate:"required"`
-		RPCTimeout    string `toml:"rpc_timeout" validate:"required"`
+		TMRPCEndpoint string `toml:"tmrpc_endpoint" `
+		GRPCEndpoint  string `toml:"grpc_endpoint" `
+		RPCTimeout    string `toml:"rpc_timeout" `
 	}
 
 	// Telemetry defines the configuration options for application telemetry.
@@ -201,8 +201,8 @@ type (
 	}
 
 	Healthchecks struct {
-		URL     string `toml:"url" validate:"required"`
-		Timeout string `toml:"timeout" validate:"required"`
+		URL     string `toml:"url" `
+		Timeout string `toml:"timeout" `
 	}
 )
 

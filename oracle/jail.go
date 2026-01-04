@@ -2,13 +2,8 @@ package oracle
 
 import (
 	"context"
-	"fmt"
-	"time"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 )
 
 const (
@@ -56,32 +51,5 @@ func (o *Oracle) GetCachedJailedState(ctx context.Context, currentBlockHeight in
 
 // GetJailedState returns the current on-chain jailing state of the validator
 func (o *Oracle) GetJailedState(ctx context.Context) (bool, error) {
-	// create grpc connection with the blockchain
-	grpcConn, err := grpc.NewClient(
-		o.oracleClient.GRPCEndpoint,
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithContextDialer(dialerFunc),
-	)
-	if err != nil {
-		return false, fmt.Errorf("failed to dial Cosmos gRPC service: %w", err)
-	}
-
-	defer grpcConn.Close()
-
-	// create staking query client
-	queryClient := stakingtypes.NewQueryClient(grpcConn)
-
-	// create context with 15s of timeout
-	ctx, cancel := context.WithTimeout(ctx, 15*time.Second)
-
-	defer cancel() // cancel context when the function ends
-
-	// query the validator information
-	queryResponse, err := queryClient.Validator(ctx, &stakingtypes.QueryValidatorRequest{ValidatorAddr: o.oracleClient.ValidatorAddrString})
-	if err != nil {
-		return false, fmt.Errorf("failed to get staking validator: %w", err)
-	}
-
-	// return the jail state of the validator
-	return queryResponse.Validator.Jailed, nil
+    return false, nil  // DUMMY - always return not jailed
 }

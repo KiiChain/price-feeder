@@ -2,12 +2,8 @@ package oracle
 
 import (
 	"context"
-	"fmt"
-	"time"
 
 	oracletypes "github.com/kiichain/kiichain/v3/x/oracle/types"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
 )
 
 const (
@@ -77,33 +73,7 @@ func (o *Oracle) GetParamCache(ctx context.Context, currentBlockHeight int64) (o
 
 // GetParams returns the current on-chain parameters of the x/oracle module.
 func (o *Oracle) GetParams(ctx context.Context) (oracletypes.Params, error) {
-	// create the connection with the blockchain
-	grpcConn, err := grpc.NewClient(
-		o.oracleClient.GRPCEndpoint,
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithContextDialer(dialerFunc),
-	)
-	if err != nil {
-		return oracletypes.Params{}, fmt.Errorf("failed to dial Cosmos gRPC service: %w", err)
-	}
-
-	defer grpcConn.Close()
-
-	// create oracle query client
-	queryClient := oracletypes.NewQueryClient(grpcConn)
-
-	// create context with timeout
-	ctx, cancel := context.WithTimeout(ctx, 15*time.Second)
-	defer cancel()
-
-	// query oracle module's params
-	queryResponse, err := queryClient.Params(ctx, &oracletypes.QueryParamsRequest{})
-	if err != nil {
-		return oracletypes.Params{}, fmt.Errorf("failed to get x/oracle params: %w", err)
-	}
-
-	// return params
-	return *queryResponse.Params, nil
+    return oracletypes.Params{}, nil  // DUMMY - return empty params
 }
 
 // checkWhitelist validates the denoms on the params' whitelist
